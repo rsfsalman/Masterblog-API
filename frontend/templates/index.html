@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Master Blog Posts API</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <script src="static/js/main.js"></script>
+    </head>
+    <body>
+        <div class="main-page">
+            <div class="api-container">
+                <h2>Blog Posts</h2>
+                <div class="input-field">
+                    <input type="text" id="api-base-url" class="api-url-input" placeholder="Enter API Base URL" value="http://127.0.0.1:5002/api">
+                    <button class="update-button" onclick="loadPosts()">Load Posts</button>
+                </div>
+            </div>
+
+            <div class="toolbar-container">
+                <a href="#" class="add-button" id="add-post-link">
+                    <i class="fas fa-plus"></i> Add
+                </a>
+
+                <div class="sort-container">
+                    <span>Sorting:</span>
+                    <input type = "image" src="../static/images/sorting_off_state.png" id="sortImage" onclick="toggleSort()"/>
+
+                    <select id="sortMenu" disabled onchange="sortBlogPosts()">
+                        <option value="title">By Title</option>
+                        <option value="author">By Author</option>
+                        <option value="content">By Content</option>
+                        <option value="date">By Date</option>
+                    </select>
+
+                    <button id="sortOrderBtn" class="order-button" onclick="toggleSortOrder()" disabled>
+                        <i class="fa-solid fa-arrow-down-a-z"></i>
+                    </button>
+                </div>
+
+                <div class="search-container">
+                    Search: <input id = "search-input" type="text" class="search-input" onchange="searchChange()">
+                     <select id="search-menu" disabled onchange="handleSearch()">
+                        <option value="title">By Title</option>
+                        <option value="author">By Author</option>
+                        <option value="content">By Content</option>
+                        <option value="date">By Date</option>
+                    </select>
+
+                    <button id="search-button" class="search-button" onclick="handleSearch()" disabled>
+                        <i class="fas fa-search"></i>
+                    </button>
+
+                    <button id="exit-search-button" class="exit-search-button" onclick="handleCancelSearch()" disabled>
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="container" id="container">
+                <!-- Blog posts will be inserted here by JavaScript -->
+            </div>
+        </div>
+        <!--
+            Overlay Element:
+            The <div> with id="overlay" serves as an overlay element beneath a modal dialog box for modality.
+            This element is used to visually block interaction with elements behind the modal,
+            emphasizing user focus on the dialog.
+            It is styled with the "overlay" class to provide a translucent background.
+        -->
+        <div id="overlay" class="overlay"></div>
+        <div id="quick-panel" class="quick-panel">
+            <p class="quick-message">Attention!</p>
+        </div>
+        <div id="confirmation-panel" class="confirmation-panel">
+		    <div class="panel-content">
+                <img src="../static/images/alert_caution_badge_icon.png" alt="Caution Icon" class="caution-icon">
+		        <div class = "message-content">
+				    <p class="confirmation-title">Attention!</p>
+			        <p class="confirmation-text" id = "confirmation-text">Are you sure you want to delete this post?</p>
+					<div class="panel-group-buttons">
+						<button type="default-button" id="confirmButton" class="default-button">Yes, confirm</button>
+						<button type="button" id="cancelButton">Cancel</button>
+		    		</div>
+		   		</div>
+		    </div>
+		</div>
+
+        <dialog class="modal" id="modal">
+            <h1 id ="form-title">Create Blog Post</h1>
+            <form method="dialog" id="blogPostForm" onsubmit="addPost(event)">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="text-input" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" class="text-input" id="author" name="author" required>
+                </div>
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea id="content" class="text-area" name="content" rows="6" required></textarea>
+                </div>
+                <div class="form-group buttons">
+                    <button type="submit" id="submit-button">Submit</button>
+                    <button type="button" id="cancel-button">Cancel</button>
+                </div>
+            </form>
+        </dialog>
+    </body>
+</html>

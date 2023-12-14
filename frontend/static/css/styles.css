@@ -1,0 +1,758 @@
+/**
+ * Reset Styles CSS
+ *
+ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    box-sizing: border-box;
+}
+
+/**
+ * body css
+ */
+body {
+    font-family: "Myriad set Pro", "Helvetica Neue", Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin-top: 20px;
+}
+
+/** our page properties:
+    the main page's container
+ */
+.main-page {
+    margin: 0 auto;
+    max-width: 1024px;
+    margin-bottom: 20px;
+}
+
+/**
+  Main container, the posts container
+  and the api-container CSS
+ */
+.api-container,
+.container {
+    box-shadow: 0px 0px 5px #999999;
+    background-color: #ffffff; /*f2f2f2*/
+    border-radius: 10px;
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 20px 3px 20px;
+}
+
+.api-container {
+    padding-bottom: 20px;
+}
+
+.api-container {
+    padding-bottom:20px;
+}
+
+.container h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.no-posts-message {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color:#f00;
+}
+
+.container h2 {
+    text-align: left;
+}
+
+.api-url-input {
+    width: 580px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+}
+/* end of .container */
+
+/**
+  Toolbar container, add-button
+  and back button containers CSS
+ */
+.toolbar-container,
+.add-button-container,
+.back-button-container {
+    padding: 20px 0 20px 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.add-button,
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: #007AFF;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+/* end of .toolbar-container */
+
+/**
+  sort-container,
+  and search-container CSS
+ */
+.sort-container,
+.search-container {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+/* end of .sort-container */
+
+/**
+  #sort-Menu,
+  #search=Menu,
+  #page-size-menu CSS
+ */
+#page-size-menu,
+#search-menu,
+#sortMenu {
+    appearance: none;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px; /* Adjust the border radius */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* subtle shadow */
+    font-size: 14px;
+    font-family: "Myriad set Pro", "Helvetica Neue", Arial, sans-serif;
+    cursor: pointer;
+    background-color: #fff;
+    outline: none;
+    background-image: url('../images/menu-arrow-icon.png'); /* Add a dropdown arrow icon similar to Apple's UI */
+    background-repeat: no-repeat;
+    background-position: right 8px center; /* Adjust position as per your icon's size */
+    background-size: 10px;
+    padding-right: 25px; /* Give some space for the icon */
+}
+
+#search-menu:disabled,
+#sortMenu:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+    background-image: none; /* Remove the dropdown arrow when disabled */
+}
+/* end of .sort-menu */
+
+/**
+   sort order (asc) or (desc) button css
+   search-button, and exit-search-button css
+ */
+.exit-search-button,
+.search-button,
+.order-button {
+    background-color: #007AFF;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s;
+}
+
+.order-button:hover {
+    background-color: #e0e0e0;
+}
+
+.order-button i {
+    font-size: 16px;
+}
+
+.exit-search-button:disabled,
+.search-button:disabled,
+.order-button:disabled {
+    background-color: #e0e0e0;
+}
+
+.search-button:hover {
+    background-color: #e0e0e0;
+}
+
+.search-button.clicked {
+    background-color: #e0e0e0;
+}
+/* end of .order-button */
+
+/** search input field css
+ */
+.search-input {
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+/* end of .search-input */
+
+/**
+ * Overlay: modal dialog box
+ */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity, 0.5s;
+    z-index: 1000;
+}
+
+.overlay.show {
+    opacity: 1;
+    display: flex;
+    pointer-events: auto;
+}
+/* end of .overlay */
+
+/**
+ * quick panel modality
+ */
+.quick-message {
+    color: black;
+    font-size: 24px;
+}
+
+.quick-panel {
+    position: fixed;
+    opacity: 0;
+    max-width: 800px; /* Adjust the max width as needed */
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    background: #fff;
+    background: rgba(249, 249, 249, 1);
+    box-shadow: 0px 0px 25px #999999;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 1020;
+    transition: opacity 0.5s;
+}
+
+.quick-panel.show {
+    opacity: 1;
+    display: flex;
+}
+/* end of quick panel modality CSS */
+
+/**
+ * confirmation panel modality
+ */
+.confirmation-panel {
+    position: fixed;
+    opacity: 0;
+
+    max-width: 800px;
+    flex-direction: column;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: #fff;
+    box-shadow: 0px 0px 25px #999999;
+
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 1005;
+
+    transition: opacity 0.5s;
+}
+
+.confirmation-panel.show {
+    opacity: 1;
+    display: flex;
+}
+
+.panel-content {
+    display: flex;
+	flex-direction: row;
+}
+
+.caution-icon {
+    top: 10px;
+    left: 10px;
+    width: 64px; /* Adjust the size as needed */
+    height: 64px;
+    margin-right: 10px;
+}
+
+.message-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.confirmation-text {
+    word-wrap: break-word;
+    max-width: 300px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.confirmation-title {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.panel-group-buttons {
+    margin-top: 20px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: left;
+	gap: 10px;
+}
+/* end of .confirmation-panel */
+
+/**
+ * button[types] = submit, default
+ * and button types CSS
+ */
+button[type="submit"],
+button[type="default-button"],
+button[type="button"] {
+    flex: 0 0 auto;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    color: #828282; /*#fff;*/
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"],
+button[type="default-button"] {
+    background-color: #007bff;
+    color: #fff;
+}
+
+button[type="button"] {
+  display: inline-block;
+  background-color: #E8E8ED; /* #007AFF;*/
+  color: #828282;
+}
+
+button[type="submit"]:hover,
+button[type="default-button"]:hover {
+  background-color: #0056B3;
+}
+
+button[type="button"]:hover {
+	background-color: #FF69D9;
+    background-color: #0056b3; /* Change to your desired hover color */
+    background-color: #79797d; /* Change to your desired hover color */
+	color: white;
+}
+/* end of button[types] */
+
+/**
+ * Enabling, disabling the entire window CSS
+ * or any UI element
+ */
+.enable-entire-page {
+    background: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.disable-entire-page {
+    background: rgba(0, 0, 0, 0);
+    opacity: 0;
+    pointer-events: auto;
+}
+
+.active-pointer {
+    pointer-events: auto;
+}
+
+.inactive-pointer {
+    pointer-events: none;
+}
+/* end of Enabling, disabling the entire window CSS
+
+
+/**
+ * modal dialog box CSS
+ */
+.modal {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 5px #999999;
+    border-radius: 10px;
+    border: 0;
+}
+
+.modal[open] {
+    animation: slide-up 1000ms ease-in-out forwards,
+               fade-in 1000ms ease-in-out forwards;
+}
+
+.modal::backdrop {
+    background: rgb(0 0 0 / 0.2);
+    opacity: 0;
+}
+
+.modal[open]::backdrop {
+    animation: fade-in 1500ms forwards;
+}
+
+.modal[closing]::backdrop {
+    animation: fade-out 1500ms forwards;
+}
+
+.modal[closing] {
+    display: block;
+    pointer-events: none;
+    inset: 0;
+    animation: fade-out 1500ms forwards;
+}
+/* end of modal dialog box CSS */
+
+/**
+ * post's form CSS
+ */
+.modal h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input[type="text"] {
+    margin-bottom: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+.text-input,
+.text-area {
+    width: 560px;
+    padding: 10px;
+    border: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+.text-area {
+    max-height: 500px;
+    max-width: 560px;
+    min-width: 200px;
+    overflow: auto;
+}
+
+/**
+ * keyframes animation CSS
+ */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+/* end of keyframe animation CSS */
+
+/**
+ * Pagination CSS
+ */
+ .pagination-container {
+    padding: 10px 0 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row; /* Ensure a row layout */
+    align-items: center;
+}
+
+.pages-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    gap: 2px; /* it was 6px */
+}
+
+.pagination-container .pages {
+    margin: 0 10px;
+    align-items: center;
+}
+
+.page-button {
+    background-color: #fff;
+    width: 30px;
+    color: #007AFF;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 0px;
+    text-align: center;
+}
+
+.page-button:hover {
+    background-color: #e0e0e0;
+}
+
+.hilited-button {
+    background-color: #007AFF;
+    color: #FFFFFF;
+}
+/* end of Pagination CSS */
+
+/**
+ * post CSS
+ */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.blog-post {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.blog-post h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.blog-post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.blog-post-header h2 {
+    margin: 0px;
+    font-size: 24px;
+}
+
+.blog-post-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: -15px;
+}
+
+.blog-post .author {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.blog-post .date {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.blog-post p {
+    font-size: 18px;
+    color: #444;
+}
+
+.post-content {
+  word-wrap: break-word;
+  white-space: pre-line;
+  line-height: 1.5;
+}
+
+.blog-post-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.delete-button,
+.update-button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.update-button {
+     background-color: #007bff;
+}
+
+.like-button {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.like-icon {
+    margin-right: 5px;
+}
+
+.like-count {
+    font-size:12px;
+    margin-left: 3px;
+}
+
+button[type="button"]:last-child {
+    margin-right: 0;
+}
+/* end of post CSS */
+
+@initial {
+    .confirmation-panel {
+        opacity: 0;
+    }
+
+    .quick-panel {
+        opacity: 0;
+    }
+}
+
+/**
+ * Custom Fonts CSS
+ *
+ * This CSS file defines custom font faces for the "Myriad Set Pro" font family.
+ * The fonts are loaded from the "../Fonts/" directory, and various weights and styles
+ * are specified for different use cases.
+ *
+ * Font Faces:
+ * - Myriad Set Pro Regular
+ * - Myriad Set Pro Bold
+ * - Myriad Set Pro Semibold
+ * - Myriad Set Pro Text Italic
+ * - Myriad Set Pro Thin
+ *
+ * Usage:
+ * To apply these fonts to elements, use the "Myriad Set Pro" font family in your CSS styles.
+ * Example:
+ *   body {
+ *     font-family: "Myriad Set Pro", sans-serif;
+ *   }
+ *
+ * Font Files:
+ * - "../fonts/myriad-set-pro_text.ttf"
+ * - "../fonts/myriad-set-pro_bold.ttf"
+ * - "../fonts/myriad-set-pro_semibold.ttf"
+ * - "../fonts/myriad-set-pro_text-italic.ttf"
+ * - "../fonts/myriad-set-pro_thin.ttf"
+ *
+ * Note: Make sure to adjust the file paths based on your project structure.
+ */
+/* Load custom fonts from the directory */
+/* Myriad Set Pro Regular */
+@font-face {
+    font-family: "Myriad Set Pro";
+    src: url("../fonts/myriad-set-pro_text.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Myriad Set Pro Bold */
+@font-face {
+    font-family: "Myriad Set Pro";
+    src: url("../fonts/myriad-set-pro_bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Myriad Set Pro Semibold */
+@font-face {
+    font-family: "Myriad Set Pro";
+    src: url("../fonts/myriad-set-pro_semibold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Myriad Set Pro Semibold */
+@font-face {
+    font-family: "Myriad Set Pro";
+    src: url("../fonts/myriad-set-pro_text-italic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* Myriad Set Pro Thin */
+@font-face {
+    font-family: "Myriad Set Pro";
+    src: url("../fonts/myriad-set-pro_thin.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
