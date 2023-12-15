@@ -816,11 +816,6 @@ function renderPaginationButtons(totalPosts, page_index=1) {
                 last_index = page_index + HALF_PAGINATION_CYCLE;
             }
 
-//            if (start_index < 1)
-//                start_index = 1;
-//            if (last_index > totalPages)
-//                last_index = totalPages;
-
             // Ensure the start and last index are within bounds
             start_index = Math.max(1, start_index);
             last_index = Math.min(totalPages, last_index);
