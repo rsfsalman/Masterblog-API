@@ -1,5 +1,10 @@
 # Masterblog-API
 
+#### Screenshots of Masterblog-API in Operation
+![Screenshot 1](hero.png)
+*The home screen of the app showcasing the main index page, where all the blog posts are displayed.*
+<br>
+<br>
 Welcome to the Masterblog-API Application!
 
 MasterBlog is a powerful web application that seamlessly integrates API implementation, offering full support for CRUD operations. CRUD stands for Create, Read, Update, and Delete, and with MasterBlog, users can effortlessly manage and interact with their blog posts.
@@ -74,39 +79,6 @@ To get started with the Masterblog-API application, follow these steps:
     </ul>
 </ul>
 
-## File Structure
-```shell
-Masterblog-API/
-  ├── backend/
-  │   ├── database/
-  │   │   ├── blog_posts.json
-  │   │   └── data_handler.py
-  │   └── backend_app.py
-  ├── frontend/
-  │   ├── static/
-  │   │   ├── css/
-  │   │   │   ├── styles.css
-  │   │   │   └── blog_posts.css
-  │   │   ├── fonts/
-  │   │   │   ├── myriad-set-pro_bold.ttf
-  │   │   │   ├── myriad-set-pro_semibold.ttf
-  │   │   │   ├── myriad-set-pro_text-italic.ttf
-  │   │   │   ├── myriad-set-pro_text.ttf
-  │   │   │   └── myriad-set-pro_thin.ttf
-  │   │   ├── images/
-  │   │   │   ├── alert_caution_badge_icon.png
-  │   │   │   ├── menu-arrow-icon.png
-  │   │   │   ├── sorting_off_state.png
-  │   │   │   └── sorting_on_state.png
-  │   │   ├── js/
-  │   │   │   └── main.js
-  │   │   └── sounds/
-  │   │       └── Uh oh.mp3
-  │   └── templates/
-  │       └── index.html
-  ├── hero.png
-  └── README.md
-```
 
 ## Contributing
 Contributions to the Masterblog-API project are welcome! If you find any issues or have suggestions for improvements, 
@@ -117,9 +89,4 @@ For any inquiries or further information, please feel free to reach out to me:
 
 GitHub: [rsfsalman](https://github.com/rsfsalman)
 
-# App in Action
-#### Screenshots of Masterblog-API in Operation
-![Screenshot 1](hero.png)
-*The home screen of the app showcasing the main index page, where all the blog posts are displayed.*
-<br>
-<br>
+
